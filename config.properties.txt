@@ -1,0 +1,2 @@
+app.author=Joakim Jakobsson
+app.version=1.1

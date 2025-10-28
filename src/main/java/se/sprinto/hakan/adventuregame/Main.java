@@ -1,5 +1,6 @@
 package se.sprinto.hakan.adventuregame;
 
+import se.sprinto.hakan.adventuregame.config.AppInfo;
 import se.sprinto.hakan.adventuregame.dao.FileStatisticsDao;
 import se.sprinto.hakan.adventuregame.dao.StatisticsDao;
 import se.sprinto.hakan.adventuregame.model.Player;
@@ -13,10 +14,17 @@ public class Main {
 
     public static void main(String[] args) {
         UI ui = new ScannerUI();
-        ui.showMessage("Välkommen till Äventyrsspelet!");
-        ui.showMessage("Version 1.0 av Håkan Gleissman");
+        AppInfo appInfo = AppInfo.getInstance();
+        ui.showMessage("Skapad av: " + appInfo.getAuthor());
+        ui.showMessage("Version: " + appInfo.getVersion());
         String name = ui.getInput("Ange ditt namn:");
-        Player player = new Player(name, 100, 0, 10);
+        //Player player = new Player(name, 100, 0, 10);
+        Player player = new Player.Builder()
+                .name(name)
+                .health(100)
+                .score(0)
+                .strength(10)
+                .build();
 
         new StartRoom().enterRoom(player, ui);
 
