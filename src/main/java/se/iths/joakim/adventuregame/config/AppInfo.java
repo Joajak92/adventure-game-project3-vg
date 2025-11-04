@@ -1,4 +1,4 @@
-package se.sprinto.hakan.adventuregame.config;
+package se.iths.joakim.adventuregame.config;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class AppInfo {
 
     private AppInfo() {
         properties = new Properties();
-        try(FileReader reader = new FileReader("config.properties.txt")) {
+        try(FileReader reader = new FileReader("config.properties")) {
             properties.load(reader);
         }catch(IOException e) {
             e.printStackTrace();
@@ -24,11 +24,7 @@ public class AppInfo {
         return instance;
     }
 
-    public String getAuthor(){
-        return properties.getProperty("app.author");
-    }
-
-    public String getVersion(){
-        return properties.getProperty("app.version");
+    public String getProperty(String key) {
+        return properties.getProperty(key);
     }
 }

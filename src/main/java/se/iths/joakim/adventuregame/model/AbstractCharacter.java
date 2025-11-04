@@ -1,4 +1,4 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.iths.joakim.adventuregame.model;
 
 public abstract class AbstractCharacter {
     private String name;

@@ -1,24 +1,23 @@
-package se.sprinto.hakan.adventuregame;
+package se.iths.joakim.adventuregame;
 
-import se.sprinto.hakan.adventuregame.config.AppInfo;
-import se.sprinto.hakan.adventuregame.dao.FileStatisticsDao;
-import se.sprinto.hakan.adventuregame.dao.StatisticsDao;
-import se.sprinto.hakan.adventuregame.model.Player;
-import se.sprinto.hakan.adventuregame.model.StartRoom;
-import se.sprinto.hakan.adventuregame.model.Statistics;
-import se.sprinto.hakan.adventuregame.service.StatisticsService;
-import se.sprinto.hakan.adventuregame.view.ScannerUI;
-import se.sprinto.hakan.adventuregame.view.UI;
+import se.iths.joakim.adventuregame.config.AppInfo;
+import se.iths.joakim.adventuregame.dao.FileStatisticsDao;
+import se.iths.joakim.adventuregame.dao.StatisticsDao;
+import se.iths.joakim.adventuregame.model.Player;
+import se.iths.joakim.adventuregame.model.StartRoom;
+import se.iths.joakim.adventuregame.model.Statistics;
+import se.iths.joakim.adventuregame.service.StatisticsService;
+import se.iths.joakim.adventuregame.view.ScannerUI;
+import se.iths.joakim.adventuregame.view.UI;
 
 public class Main {
 
     public static void main(String[] args) {
         UI ui = new ScannerUI();
         AppInfo appInfo = AppInfo.getInstance();
-        ui.showMessage("Skapad av: " + appInfo.getAuthor());
-        ui.showMessage("Version: " + appInfo.getVersion());
+        ui.showMessage("Skapad av: " + appInfo.getProperty("app.author"));
+        ui.showMessage("Version: " + appInfo.getProperty("app.version"));
         String name = ui.getInput("Ange ditt namn:");
-        //Player player = new Player(name, 100, 0, 10);
         Player player = new Player.Builder()
                 .name(name)
                 .health(100)
