@@ -7,9 +7,8 @@ import se.iths.joakim.adventuregame.view.FakeUI;
 public class TreasureRoomTest {
 
     @Test
-    public void openChestIfHasKey(){
+    public void openChestWhenHasFoundKey(){
         FakeUI fakeUI = new FakeUI();
-        fakeUI.setInput("Ja");
         TreasureRoom treasureRoom = new TreasureRoom();
         Player player = new Player.Builder()
                 .name("Jocke")
@@ -17,6 +16,7 @@ public class TreasureRoomTest {
                 .score(0)
                 .strength(10)
                 .build();
+        fakeUI.setInput("Ja");
         player.setFoundKey(true);
         treasureRoom.enterRoom(player,fakeUI);
         Assertions.assertTrue(player.hasOpenedChest());

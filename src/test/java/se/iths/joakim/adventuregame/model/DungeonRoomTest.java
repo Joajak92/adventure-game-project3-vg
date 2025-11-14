@@ -8,15 +8,15 @@ public class DungeonRoomTest {
 
     @Test
     public void attackAndDefeatEnemy(){
+        DungeonRoom dungeonRoom = new DungeonRoom();
         FakeUI fakeUI = new FakeUI();
-        fakeUI.setInput("a");
         Player player = new Player.Builder()
                 .name("Jocke")
                 .health(100)
-               .score(0)
+                .score(0)
                 .strength(10)
                 .build();
-        DungeonRoom dungeonRoom = new DungeonRoom();
+        fakeUI.setInput("a");
         dungeonRoom.enterRoom(player,fakeUI);
         Assertions.assertTrue(player.hasDefeatedEnemy());
 

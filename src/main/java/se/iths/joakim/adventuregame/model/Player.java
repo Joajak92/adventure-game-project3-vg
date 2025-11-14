@@ -3,6 +3,9 @@ package se.iths.joakim.adventuregame.model;
 public class Player extends AbstractCharacter {
     private boolean foundKey;
     private boolean defeatedEnemy;
+    private boolean defeatedDragon;
+    private boolean defeatedGiant;
+    private boolean foundGoldNugget;
     private boolean openedChest;
 
     public Player(Builder builder) {
@@ -53,9 +56,28 @@ public class Player extends AbstractCharacter {
         return defeatedEnemy;
     }
 
+    public boolean hasDefeatedDragon() {
+        return defeatedDragon;
+    }
+
+    public boolean hasDefeatedGiant() {
+        return defeatedGiant;
+    }
+
+    public boolean hasFoundGoldNugget() {
+        return foundGoldNugget;
+    }
 
     public void setDefeatedEnemy(boolean defeatedEnemy) {
         this.defeatedEnemy = defeatedEnemy;
+    }
+
+    public void setDefeatedDragon(boolean defeatedDragon) {
+        this.defeatedDragon = defeatedDragon;
+    }
+
+    public void setDefeatedGiant(boolean defeatedGiant) {
+        this.defeatedGiant = defeatedGiant;
     }
 
     public boolean hasOpenedChest() {
@@ -70,6 +92,14 @@ public class Player extends AbstractCharacter {
         return foundKey && defeatedEnemy && openedChest;
     }
 
+    public void dive(){
+        System.out.println("Du dyker ner i vattnet och hittar en gold nugget som du lägger i fickan!");
+        foundGoldNugget = true;
+        if(hasFoundGoldNugget()){
+            addScore(100);
+        }
+    }
+
     @Override
     public void attack(AbstractCharacter target) {
         target.setHealth(target.getHealth() - this.getStrength());
@@ -78,4 +108,5 @@ public class Player extends AbstractCharacter {
             addScore(50);
         }
     }
+
 }

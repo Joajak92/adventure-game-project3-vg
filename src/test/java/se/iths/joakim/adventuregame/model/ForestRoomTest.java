@@ -7,7 +7,7 @@ import se.iths.joakim.adventuregame.view.FakeUI;
 public class ForestRoomTest {
 
     @Test
-    public void testEnterRoom(){
+    public void testHasFoundKey(){
         ForestRoom forestRoom = new ForestRoom();
         FakeUI fakeUI = new FakeUI();
         Player player = new Player.Builder()

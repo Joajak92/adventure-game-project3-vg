@@ -3,9 +3,7 @@ package se.iths.joakim.adventuregame.view;
 import java.util.Scanner;
 
 public class ScannerUI implements UI {
-    //OK att instansera Scanner här i detta fall,
-    //eftersom denna implementation ska använda just en Scanner
-    //och inget annat
+
     private Scanner scanner = new Scanner(System.in);
 
     @Override
